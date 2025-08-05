@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Indian Flag</title>
+  <style>
+    body {
+      background-color: lightblue;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+    }
+
+    p {
+      font-family: verdana;
+      font-size: 20px;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: lightgrey;
+    }
+
+    .flag {
+      width: 450px;
+      height: 300px;
+      border: 2px solid black;
+    }
+
+    .saffron, .white, .green {
+      height: 100px;
+      width: 100%;
+    }
+
+    .saffron {
+      background-color: #FF9933;
+    }
+
+    .white {
+      background-color: white;
+      position: relative;
+    }
+
+    .green {
+      background-color: #138808;
+    }
+
+    .chakra {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 60px;
+      width: 60px;
+      border: 2px solid #000080;
+      border-radius: 50%;
+    }
+
+    .spoke {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 60px;
+      background-color: #000080;
+      transform-origin: bottom center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flag">
+    <div class="saffron"></div>
+    <div class="white">
+      <div class="chakra">
+        <!-- 24 Spokes -->
+        <!-- Each spoke is rotated 15 degrees more than the last -->
+        <!-- 360 / 24 = 15 -->
+        <!-- We'll use JS to insert them -->
+      </div>
+    </div>
+    <div class="green"></div>
+  </div>
+
+  <script>
+    const chakra = document.querySelector('.chakra');
+    for (let i = 0; i < 24; i++) {
+      const spoke = document.createElement('div');
+      spoke.className = 'spoke';
+      spoke.style.transform = `translate(-50%, -100%) rotate(${i * 15}deg)`;
+      chakra.appendChild(spoke);
+    }
+  </script>
+
+</body>
+</html>
